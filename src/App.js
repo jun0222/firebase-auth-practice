@@ -1,12 +1,12 @@
 import './App.css';
 
-import SignUp from './components/userAuth/SignUp'
-import SignIn from './components/userAuth/SignIn'
+// import SignUp from './components/userAuth/SignUp'
+import SignInAndSignOut from './components/userAuth/SignInAndSignOut'
 
 function App() {
   return (
     <div className="app">
-      <SignIn />
+      <SignInAndSignOut />
     </div>
   );
 }
