@@ -4,12 +4,11 @@ import {getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged} from '
 
 const SignInAndSignOut = () => {
     const [isSignedIn, setIsSignedIn] = useState();
-    const auth = getAuth();
+    const auth = getAuth(app);
 
     const handleSignIn = async (event) => {
         event.preventDefault();
         const { email, password } = event.target.elements;
-        const auth = getAuth(app);
         try {
             signInWithEmailAndPassword(auth, email.value, password.value)
             alert("Success sign in!!")
