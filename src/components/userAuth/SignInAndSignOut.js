@@ -1,5 +1,5 @@
 import app from '../../firebase';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged} from 'firebase/auth';
 
 const SignInAndSignOut = () => {
@@ -28,15 +28,17 @@ const SignInAndSignOut = () => {
         }
     }
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setIsSignedIn(true);
-            console.log(user);
-        } else {
-            setIsSignedIn(false);
-            console.log('User is signed out');
-        }
-    })
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsSignedIn(true);
+                console.log(user);
+            } else {
+                setIsSignedIn(false);
+                console.log('User is signed out');
+            }
+        })
+    }, []);
     return (
         <>
         <form style={{marginTop: '150px'}} onSubmit={handleSignIn}>
