@@ -10,10 +10,12 @@ const SignInAndSignOut = () => {
         event.preventDefault();
         const { email, password } = event.target.elements;
         try {
-            signInWithEmailAndPassword(auth, email.value, password.value)
+            await signInWithEmailAndPassword(auth, email.value, password.value)
+            console.log(email.value, password.value)
             alert("Success sign in!!")
         }catch (error) {
-            alert(error);
+            console.log(error.message);
+            alert("sign in error!!")
         }
     }
     const handleSignOut = async (event) => {
